@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body style="padding:10px">
+        {% if cursor %}
+        <button style='margin-bottom:20px' type="button" onclick="window.location.href='{{ url_for( 'index') }}';">Menu</button>
+
+       <h3>Produtos</h3>
+
+		<table border="2px">
+
+            <tr>
+                <thead>Ean</thead>
+                <thead>Categoria</thead>
+                <thead>Descrição</thead>
+            </tr>
+
+			<tbody>
+                {% for record in cursor %}
+					<tr>
+                        <td>{{record[0]}}</td>
+                        <td>{{record[1]}}</td>
+                        <td>{{record[2]}}</td>
+                    </tr>
+                {% endfor %}
+			</tbody>
+		</table>
+
+        {% else %}
+        <p>Error: failed to retrieve data from database!</p>
+        {% endif %}
+</body>
+</html>
+

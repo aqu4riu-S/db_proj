@@ -1,0 +1,44 @@
+<!doctype html>
+	<title>Lista Eventos Reposição (IVM xx) - Flask</title>
+	<body style="padding:10px">
+		{% if cursor %}
+
+		<button style='margin-bottom:20px;margin-right:20px' type="button" onclick="window.location.href='{{ url_for( 'index') }}';">Menu</button>
+		<button style='margin-bottom:20px' type="button" onclick="window.location.href='{{ url_for( 'list_ivms') }}';">IVMs</button>
+
+		<h3>Eventos de Reposição</h3>
+
+		<table border="2px">
+			<thead>
+				<tr>
+					<thead>ean</thead>
+					<thead>nro</thead>
+					<thead>num_serie</thead>
+					<thead>fabricante</thead>
+					<thead>instante</thead>
+					<thead>unidades</thead>
+					<thead>tin</thead>
+				</tr>
+			</thead>
+
+			<tbody>
+					{% for record in cursor %}
+					<tr>
+						<td>{{record[0]}}</td>
+						<td>{{record[1]}}</td>
+						<td>{{record[2]}}</td>
+						<td>{{record[3]}}</td>
+						<td>{{record[4]}}</td>
+						<td>{{record[5]}}</td>
+						<td>{{record[6]}}</td>
+						<td>{{record[7]}}</td>
+					</tr>
+					{% endfor %}
+			</tbody>
+		</table>
+
+
+		{% else %}
+		<p>Error: failed to retrieve data from database!</p>
+		{% endif %}
+	</body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista sub-categorias</title>
+
+
+</head>
+	<body style="padding:10px">
+
+		{% if sub_lst %}
+		{% if super_categoria %}
+
+		<button style='margin-bottom:20px;margin-right:20px' type="button" onclick="window.location.href='{{ url_for( 'index') }}';">Menu</button>
+    	<button style='margin-bottom:20px;margin-right:20px;' type="button" onclick="window.location.href='{{ url_for( 'list_categorias') }}';">Categorias</button>
+		<button style='margin-bottom:20px;' type="button" onclick="window.location.href='{{ url_for( 'list_super_categorias') }}';">Super-categorias</button>
+
+		<h3>Super-categoria: {{super_categoria}}</h3>
+
+		<table border="2px">
+			<thead>
+				<tr>
+					<thead>Sub-categorias</thead> 
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for sub_cat in sub_lst %}
+				<tr>
+					<td>{{sub_cat}}</td> <!-- ou sub_cat[0] -->
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		{% else %}
+		{% endif %}
+		{% else %}
+		<p>Error: failed to retrieve data from database!</p>
+		{% endif %}
+	</body>

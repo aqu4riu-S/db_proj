@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>IVMs</title>
+</head>
+<body style="padding:10px">
+    {% if cursor %}
+
+    <button style='margin-bottom:20px;' type="button" onclick="window.location.href='{{ url_for('index') }}';">Menu</button>
+
+    <h3>IVMs</h3>
+
+    <table border="2px">
+        <thead>
+            <tr>
+                <thead>Número de Série</thead>
+                <thead>Fabricante</thead>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{record[0]}}</td><td>{{record[1]}}</td>
+                    <td><a href="{{ url_for('list_eventos_reposicao', num_serie=record[0], fabricante=record[1]) }}"><i class="bi bi-eye"></i></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <p>Error: failed to retrieve data from database!</p>
+    {% endif %}
+
+</body>
+</html>

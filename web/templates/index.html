@@ -1,0 +1,60 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/cgi-bin/styling.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body,html {
+            margin: 0;
+            font-family: sans-serif;
+            padding: 10px;
+            }
+
+            .container {
+            display: flex;
+            gap: 0.625%;
+            }
+
+            a {
+            flex: 1;
+            text-decoration: none;
+            outline: none;
+            text-align: center;
+            line-height: 3;
+            color: black;
+            border-radius: 10px;
+            }
+
+            a:link, a:visited, a:focus {
+            background: rgb(233, 218, 193);
+            }
+
+            a:hover {
+            background: rgb(247, 236, 222);
+            }
+
+            a:active {
+            background: rgb(84, 186, 185);
+            color: white;
+        }
+
+    </style>
+</head>
+<body style='margin-bottom:20px;margin-right:20px'>
+
+    <h4>Menu</h4>
+
+
+    <nav class="container">
+        <a href="{{ url_for('list_ivms') }}">IVMs</a>
+        <a href="{{ url_for('list_categorias') }}">Categorias</a>
+        <a href="{{ url_for('list_retalhistas') }}">Retalhistas</a>
+        <a href="{{ url_for('list_produtos') }}">Produtos</a>
+      </nav>
+
+</body>
+</html>
+
